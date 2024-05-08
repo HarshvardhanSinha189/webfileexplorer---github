@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.filecard {
+  height: 20vh;
+  width: 7.5vw;
+}
+
+.filecard img{
+  width: 100%;
+}
+
+.filecard:hover {
+  background-color: rgba(241, 245, 249, 0.9);
+}
+
+.fileName {
+  display: flex;
+  justify-content: center;
+}
+
+.fileName :nth-child(1) {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 20vw;
+}
+
+.fileCardContaner{
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(9, 1fr);
+  /* max-width: 80vw; */
+}
+
+.sidepanel{
+  width: 20vw;
+  height: 100vh;
+  background-color: red;
+  display: inline-block;
+}
+
+.cwd{
+  position: relative;
+}
+
+.filecradcontainder1{
+  position: absolute;
+  top: 0;
+  left: 20vw;
+}
+
+.bi-arrow-left-circle-fill:hover{
+  fill: rgb(161, 207, 231);
+}
+
+.bi-arrow-right-circle-fill:hover{
+  fill: rgb(161, 207, 231);
+}
