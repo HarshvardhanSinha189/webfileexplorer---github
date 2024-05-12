@@ -1,10 +1,6 @@
-import { headers } from "next/headers";
 import { NextResponse } from "next/server"
 
-const fs = require('fs');
-const path = require('path');
 let currentWorkingDiretcory = "./"
-
 function listFilesAndFolders(folderPath) {
     try {
         const files = fs.readdirSync(folderPath);
@@ -30,12 +26,8 @@ function listFilesAndFolders(folderPath) {
     }
 }
 
-export async function POST(request, response) {
+export async function POST(request) {
     // console.log(listFilesAndFolders("./"))
-    let headersList = request.headers
-    // let backHeader = headersList[Symbol.for('headers map')]['back'];
-
-    let spath = request.headers.get('current_working_directory')
-    
-    return NextResponse.json({ success: true, file: listFilesAndFolders(spath)})
+    let absolutePath = path.resolve(process.cwd());
+    return NextResponse.json({ success: true, file: listFilesAndFolders(absolutePath), cwd: absolutePath })
 }
